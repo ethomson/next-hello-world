@@ -27,6 +27,8 @@ jobs:
         name: Check out repository
       - run: npm install -g vercel
         name: Install the Vercel CLI
+      - run: vercel pull --yes --token="${VERCEL_TOKEN}"
+        name: Download Vercel settings
       - run: vercel build --token="${VERCEL_TOKEN}"
         name: Build site
       - run: vercel deploy --prebuilt --token="${VERCEL_TOKEN}"
